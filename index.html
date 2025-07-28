@@ -1,22 +1,240 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My GitHub Page</title>
-<style>
-  h1{
-    font-family: Comic Sans MS;
-    color: navy;
-  }
-  div.header{
-    width: 100%;
-    height: 10vh;
-    border-bottom: 2px solid navy;
-  }
-</style>
-  </head>
-  <body>
-    <div class="header">
-      <img src="dyno.png">
-    </div>
-  </body>
-</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day PHP Learning Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .week-section {
+            margin-bottom: 2rem;
+        }
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .day-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+        .day-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .day-goal {
+            color: #4b5563;
+            font-style: italic;
+        }
+        .day-content {
+            color: #374151;
+        }
+        .header {
+            background: linear-gradient(to right, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 640px) {
+            .week-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <div class="header">
+            <h1 class="text-3xl font-bold">30-Day PHP Learning Roadmap</h1>
+            <p class="mt-2">A structured guide to learn PHP for beginners</p>
+        </div>
+
+        <div class="week-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Week 1: PHP Basics</h2>
+            <div class="week-grid">
+                <div class="day-card">
+                    <h3 class="day-title">Day 1–2: Setup and Syntax</h3>
+                    <p class="day-goal">Goal: Understand PHP syntax and setup</p>
+                    <p class="day-content">
+                        - Install XAMPP/WAMP and configure local server.<br>
+                        - Write first PHP script (e.g., echo "Hello, World!";).<br>
+                        - Learn syntax: semicolons, comments, embedding PHP in HTML.<br>
+                        - Task: Create a webpage displaying “Welcome to PHP”.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 3–4: Variables, Data Types, Operators</h3>
+                    <p class="day-goal">Goal: Master variables and basic operations</p>
+                    <p class="day-content">
+                        - Study variables ($variable), data types (string, integer, etc.).<br>
+                        - Explore operators: arithmetic, comparison, logical.<br>
+                        - Task: Write a script for calculations and check if a number is even/odd.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 5–6: Control Structures</h3>
+                    <p class="day-goal">Goal: Learn conditionals and loops</p>
+                    <p class="day-content">
+                        - Learn if, else, elseif, switch.<br>
+                        - Study loops: for, while, do-while, foreach.<br>
+                        - Task: Print numbers 1–10 and display grades based on scores.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 7: Functions</h3>
+                    <p class="day-goal">Goal: Understand functions</p>
+                    <p class="day-content">
+                        - Learn function syntax, parameters, return values, scope.<br>
+                        - Task: Write functions for factorial and palindrome checks.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Week 2: Intermediate PHP</h2>
+            <div class="week-grid">
+                <div class="day-card">
+                    <h3 class="day-title">Day 8–9: Arrays</h3>
+                    <p class="day-goal">Goal: Work with arrays</p>
+                    <p class="day-content">
+                        - Explore indexed, associative, multidimensional arrays.<br>
+                        - Learn array functions: array_push, array_pop, etc.<br>
+                        - Task: Create an array of student grades and display in a table.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 10–11: Handling Forms</h3>
+                    <p class="day-goal">Goal: Process form data</p>
+                    <p class="day-content">
+                        - Learn $_GET, $_POST for form data.<br>
+                        - Understand validation and sanitization.<br>
+                        - Task: Build and process a simple HTML form.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 12–13: File Handling</h3>
+                    <p class="day-goal">Goal: Manage files</p>
+                    <p class="day-content">
+                        - Study file operations: fopen, fwrite, fread.<br>
+                        - Learn to handle text and CSV files.<br>
+                        - Task: Save form data to a text file and read it back.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 14: Error Handling</h3>
+                    <p class="day-goal">Goal: Handle errors effectively</p>
+                    <p class="day-content">
+                        - Understand error types and try-catch.<br>
+                        - Task: Add error handling to your form script.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Week 3: Databases and Dynamic Web Development</h2>
+            <div class="week-grid">
+                <div class="day-card">
+                    <h3 class="day-title">Day 15–16: Introduction to MySQL</h3>
+                    <p class="day-goal">Goal: Learn MySQL basics</p>
+                    <p class="day-content">
+                        - Install MySQL and explore phpMyAdmin.<br>
+                        - Learn SQL: CREATE, INSERT, SELECT, etc.<br>
+                        - Task: Create a users table in a database.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 17–18: PHP and MySQL</h3>
+                    <p class="day-goal">Goal: Connect PHP to MySQL</p>
+                    <p class="day-content">
+                        - Use mysqli or PDO for database connection.<br>
+                        - Perform CRUD operations.<br>
+                        - Task: Insert and retrieve user data.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 19–20: Dynamic Web Pages</h3>
+                    <p class="day-goal">Goal: Build dynamic pages</p>
+                    <p class="day-content">
+                        - Display database data in HTML.<br>
+                        - Use prepared statements for security.<br>
+                        - Task: List users with edit/delete options.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 21: Sessions and Cookies</h3>
+                    <p class="day-goal">Goal: Manage user sessions</p>
+                    <p class="day-content">
+                        - Learn $_SESSION, $_COOKIE.<br>
+                        - Task: Create a login system with session-based authentication.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Week 4: Project and Advanced Topics</h2>
+            <div class="week-grid">
+                <div class="day-card">
+                    <h3 class="day-title">Day 22–25: Mini Project (Blog System)</h3>
+                    <p class="day-goal">Goal: Build a functional blog</p>
+                    <p class="day-content">
+                        - Features: User registration/login, post creation, comments.<br>
+                        - Tasks: Set up database, create login pages, add posts, and comment system.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 26–27: Object-Oriented PHP</h3>
+                    <p class="day-goal">Goal: Learn OOP concepts</p>
+                    <p class="day-content">
+                        - Study classes, objects, inheritance.<br>
+                        - Task: Refactor blog to use a Post class.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 28: PHP Security</h3>
+                    <p class="day-goal">Goal: Secure your application</p>
+                    <p class="day-content">
+                        - Prevent SQL injection, XSS, CSRF.<br>
+                        - Use password hashing.<br>
+                        - Task: Secure blog login with hashed passwords.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 29: Exploring Frameworks</h3>
+                    <p class="day-goal">Goal: Introduction to Laravel</p>
+                    <p class="day-content">
+                        - Research Laravel or CodeIgniter.<br>
+                        - Install Laravel and create a simple route.<br>
+                        - Task: Follow a Laravel beginner tutorial.
+                    </p>
+                </div>
+                <div class="day-card">
+                    <h3 class="day-title">Day 30: Review and Next Steps</h3>
+                    <p class="day-goal">Goal: Consolidate learning</p>
+                    <p class="day-content">
+                        - Review blog project and fix bugs.<br>
+                        - Deploy to free hosting (e.g., 000webhost).<br>
+                        - Plan next steps: Laravel, APIs, or PHPUnit.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-6 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Tips for Success</h2>
+            <ul class="

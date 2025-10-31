@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Commerce Platform - Smart E-commerce Solutions for Nigeria</title>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Base Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* CSS Variables */
+:root {
+    --accent: #4c4feb;
+    --navy: #0e1120;
+    --gray-light: #f5f5f5;
+    --white: #ffffff;
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+}
+
+/* Light/Dark Mode Support (toggle via JS if needed) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gray-light: #1a1a1a;
+    }
+    body {
+        background: var(--navy);
+        color: var(--white);
+    }
+          }
+
+/* Layout Structure */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+/* Header */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.nav-brand a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: var(--transition);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--navy);
+    margin: 3px 0;
+    transition: var(--transition);
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Grids */
+.features-grid,
+.products-grid,
+.pricing-grid,
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.about-grid,
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--navy);
+}
+
+/* Footer */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid var(--gray-light);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    color: #666;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--white);
+    max-width: 500px;
+    width: 90%;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-soft);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid,
+    .products-grid,
+    .pricing-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+      /* Components */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: darken(var(--accent), 10%);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+}
+
+/* Cards */
+.feature-card,
+.product-card,
+.pricing-card,
+.blog-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature-card:hover,
+.pricing-card:hover,
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-actions {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    padding: var(--spacing-sm);
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: var(--spacing-sm) 0;
+}
+
+.pricing-card {
+    text-align: center;
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--accent);
+    position: relative;
+}
+
+.pricing-card.popular::before {
+    content: "Most Popular";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--white);
+    padding: 0 var(--spacing-sm);
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.pricing-card ul {
+    list-style: disc inside;
+    text-align: left;
+    margin: var(--spacing-md) 0;
+}
+
+.pricing-card ul li {
+    margin-bottom: var(--spacing-xs);
+    color: #666;
+}
+
+.blog-card img {
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-sm);
+}
+
+.blog-card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Form */
+.contact-form {
+    max-width: 500px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-message {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    display: none;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.icon-twitter,
+.icon-facebook,
+.icon-linkedin {
+    font-size: 1.5rem;
+    color: #666;
+    transition: var(--transition);
+}
+
+.social-icons a:hover .icon-twitter,
+.social-icons a:hover .icon-facebook,
+.social-icons a:hover .icon-linkedin {
+    color: var(--accent);
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    transition: opacity 0.5s ease;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--gray-light);
+    border-top: 5px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Close Modal Button */
+.close-modal {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+      }
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-on-load {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInUp 0.6s ease forwards;
+}
+
+/* Hover Animations */
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* Scroll Reveal */
+@supports (animation: fadeIn) {
+    .hero-title { animation: fadeIn 1s ease 0.5s forwards; }
+    .hero-subtitle { animation: fadeIn 1s ease 0.8s forwards; }
+    .hero-ctas { animation: fadeIn 1s ease 1s forwards; }
+}
+
+/* Modal Enter */
+.modal.show {
+    display: flex !important;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    animation: slideInUp 0.3s ease;
+}
+/* Theme Application */
+body {
+    background: var(--gray-light);
+}
+
+.hero {
+    color: var(--white);
+}
+
+.section-title {
+    color: var(--navy);
+}
+
+.feature-card,
+.pricing-card ul li {
+    color: var(--navy);
+}
+
+.navbar {
+    background: var(--white);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.hamburger span {
+    background: var(--navy);
+}
+
+/* Gradients and Shadows */
+.hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+}
+
+.pricing-card.popular {
+    background: linear-gradient(135deg, var(--white), var(--gray-light));
+    box-shadow: var(--shadow-hover);
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+    .feature-card,
+    .product-card,
+    .pricing-card,
+    .blog-card {
+        background: #2a2a2a;
+        color: var(--white);
+    }
+
+    .navbar {
+        background: var(--navy);
+    }
+
+    .nav-link,
+    .hamburger span {
+        color: var(--white);
+    }
+
+    .section-title {
+        color: var(--white);
+    }
+      }
+</style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header role="banner" aria-label="Main navigation">
+        <nav class="navbar" role="navigation" aria-label="Primary navigation">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="#hero">Apex Commerce Platform</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="hero" class="hero" role="banner">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title animate-on-load">Empower Your Business with Apex Commerce Platform</h1>
+                    <p class="hero-subtitle animate-on-load delay-1">Smart, Scalable, and Secure E-commerce Solutions Tailored for Nigerian Businesses</p>
+                    <div class="hero-ctas animate-on-load delay-2">
+                        <a href="#pricing" class="btn btn-primary">Start Selling</a>
+                        <a href="#features" class="btn btn-secondary">Explore Features</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Platform Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">AI</div>
+                        <h3>AI-driven Storefronts</h3>
+                        <p>Personalized shopping experiences powered by advanced AI algorithms.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Secure Payments</h3>
+                        <p>Integrated with local and global payment gateways for seamless transactions.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">📊</div>
+                        <h3>Real-time Analytics</h3>
+                        <p>Track performance and customer behavior with live dashboards.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">👥</div>
+                        <h3>Multi-Vendor Support</h3>
+                        <p>Enable multiple sellers to thrive on your unified platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase -->
+        <section id="products" class="products">
+            <div class="container">
+                <h2 class="section-title">Product Showcase</h2>
+                <div class="products-grid" id="products-grid">
+                    <!-- Product cards will be cloned from template via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2 class="section-title">Pricing Plans</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-plan="basic">
+                        <h3>Basic</h3>
+                        <p class="price">₦9,000<span>/mo</span></p>
+                        <ul>
+                            <li>Basic Storefront</li>
+                            <li>100 Products</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                    <div class="pricing-card popular" data-plan="pro">
+                        <h3>Pro</h3>
+                        <p class="price">₦29,000<span>/mo</span></p>
+                        <ul>
+                            <li>Advanced Features</li>
+                            <li>Unlimited Products</li>
+                            <li>Chat Support</li>
+                            <li>AI Analytics</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                    <div class="pricing-card" data-plan="enterprise">
+                        <h3>Enterprise</h3>
+                        <p class="price">₦99,000<span>/mo</span></p>
+                        <ul>
+                            <li>Custom Integrations</li>
+                            <li>API Access</li>
+                            <li>Priority Support</li>
+                            <li>Dedicated Manager</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image animate-on-scroll">
+                        <img src="https://via.placeholder.com/600x400?text=Apex+Team+in+Ado-Ekiti" alt="Apex Commerce team in Ado-Ekiti, Nigeria" loading="lazy">
+                    </div>
+                    <div class="about-content animate-on-scroll">
+                        <h2 class="section-title">About Apex Commerce Platform</h2>
+                        <p>Based in Ado-Ekiti, Ekiti State, Nigeria, Apex Commerce Platform is an innovative e-commerce technology company revolutionizing online business for local entrepreneurs. We provide cutting-edge tools to help Nigerian businesses scale securely and efficiently in the digital marketplace.</p>
+                        <a href="#contact" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <h2 class="section-title">Latest Insights</h2>
+                <div class="blog-grid" id="blog-grid">
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://via.placeholder.com/400x250?text=Blog+1" alt="Top Trends in Nigerian E-commerce" loading="lazy">
+                        <h3>Top Trends in Nigerian E-commerce 2025</h3>
+                        <p>Discover the emerging trends shaping the future of online shopping in Nigeria...</p>
+                        <a href="#" class="btn btn-small btn-secondary">Read More</a>
+                    </div>
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://via.placeholder.com/400x250?text=Blog+2" alt="Scaling Your Business with Apex" loading="lazy">
+                        <h3>Scaling Your Business with Apex</h3>
+                        <p>How our platform helped local vendors grow their revenue by 300%...</p>
+                        <a href="#" class="btn btn-small btn-secondary">Read More</a>
+                    </div>
+                    <div class="blog-card animate-on-scroll">
+                        <img src="https://via.placeholder.com/400x250?text=Blog+3" alt="Secure Payments Guide" loading="lazy">
+                        <h3>Guide to Secure Payments in Nigeria</h3>
+                        <p>Best practices for integrating secure payment solutions...</p>
+                        <a href="#" class="btn btn-small btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-form animate-on-scroll">
+                        <form id="contact-form">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                        <div id="form-message" class="form-message" aria-live="polite"></div>
+                    </div>
+                    <div class="contact-info animate-on-scroll">
+                        <h3>Apex Commerce Platform</h3>
+                        <p>123 Tech Hub Street<br>Ado-Ekiti, Ekiti State<br>Nigeria</p>
+                        <p>Phone: +234 123 456 7890<br>Email: info@apexcommerce.ng</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Twitter"><span class="icon-twitter">🐦</span></a>
+                            <a href="#" aria-label="Facebook"><span class="icon-facebook">📘</span></a>
+                            <a href="#" aria-label="LinkedIn"><span class="icon-linkedin">💼</span></a>
+                        </div>
+                        <div class="contact-map">
+                            <img src="https://via.placeholder.com/400x300?text=Map+of+Ado-Ekiti" alt="Location map of Ado-Ekiti, Nigeria" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Apex Commerce Platform</h4>
+                    <p>Empowering Nigerian businesses with innovative e-commerce solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><span class="icon-twitter">🐦</span></a>
+                        <a href="#" aria-label="Facebook"><span class="icon-facebook">📘</span></a>
+                        <a href="#" aria-label="LinkedIn"><span class="icon-linkedin">💼</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Apex Commerce Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="modal-placeholder" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
+        <!-- Modal content inserted via JS -->
+    </div>
+
+    <!-- Hidden Templates for JS Cloning -->
+    <div id="product-template" style="display: none;">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/300x300?text=Product+1" alt="Sample Product 1" loading="lazy">
+            <h3>Smartphone Pro</h3>
+            <p class="price">₦50,000</p>
+            <div class="product-actions">
+                <button class="btn btn-small" onclick="addToCart(this)">Add to Cart</button>
+                <button class="btn btn-small btn-secondary" onclick="openProductModal(this)">View Details</button>
+            </div>
+            <div class="product-overlay"></div>
+        </div>
+    </div>
+
+    <div id="product-modal-template" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Product Details</h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <h3 id="modal-name"></h3>
+                <p id="modal-desc">Detailed product description goes here. This is a sample for the smartphone pro with high-end features tailored for Nigerian users.</p>
+                <p class="price" id="modal-price"></p>
+                <button class="btn btn-primary" onclick="addToCartFromModal()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+// Main JS: Navigation, Smooth Scrolling, Form Validation
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            // Close mobile menu if open
+            const navMenu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (navMenu && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Keyboard support
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+    }
+
+    // Form Validation
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                showMessage('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Simulate submit
+            showMessage('Thank you! Your message has been sent.', 'success');
+            form.reset();
+        });
+    }
+
+    function showMessage(text, type) {
+        messageDiv.textContent = text;
+        messageDiv.className = `form-message ${type}`;
+    }
+
+    // Init UI after DOM
+    initUI();
+});
+
+</script>
+  </body>
+</html>

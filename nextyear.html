@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Plan - Your Personal Growth Tracker</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+/* ========================================
+   FUTURE PLAN - MAIN STYLESHEET (PART 1)
+   ======================================== */
+
+/* ========== CSS RESET & BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== PASSWORD PROTECTION OVERLAY ========== */
+.password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.password-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 131, 50, 0.3);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255, 131, 50, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+.password-icon {
+    font-size: 60px;
+    color: #ff8332;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.password-container h2 {
+    color: #f2f2f2;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+#password-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid rgba(255, 131, 50, 0.3);
+    border-radius: 10px;
+    background: rgba(26, 26, 26, 0.8);
+    color: #f2f2f2;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#password-input:focus {
+    border-color: #ff8332;
+    box-shadow: 0 0 20px rgba(255, 131, 50, 0.3);
+}
+
+.password-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.password-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 131, 50, 0.4);
+}
+
+.password-error {
+    color: #ff4444;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+.header {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 131, 50, 0.2);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff8332;
+}
+
+.logo i {
+    font-size: 28px;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff8332;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff8332;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ff8332;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 131, 50, 0.1) 0%, transparent 70%);
+    animation: float 20s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-100px, -100px);
+    }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff8332 0%, #ffa366 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideDown 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #f2f2f2;
+    margin-bottom: 40px;
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 131, 50, 0.3);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(255, 131, 50, 0.5);
+}
+
+/* ========== QUOTE SECTION ========== */
+.quote-section {
+    padding: 60px 0;
+    background: rgba(255, 131, 50, 0.05);
+}
+
+.quote-container {
+    text-align: center;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 40px;
+    color: #ff8332;
+    opacity: 0.3;
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    font-size: 24px;
+    font-style: italic;
+    color: #f2f2f2;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ========== SECTION TITLES ========== */
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff8332;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #b0b0b0;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* ========== ROADMAP SECTION ========== */
+.roadmap-section {
+    padding: 100px 0;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.roadmap-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 131, 50, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff8332;
+    box-shadow: 0 20px 60px rgba(255, 131, 50, 0.3);
+}
+
+.roadmap-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ff8332;
+}
+
+.card-desc {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.card-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.goal-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #ff8332;
+}
+
+.card-checkbox label {
+    cursor: pointer;
+    color: #f2f2f2;
+}
+
+.completed-badge {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.roadmap-card.completed .completed-badge {
+    display: block;
+}
+
+.roadmap-card.completed {
+    background: rgba(76, 175, 80, 0.1);
+    border-color: #4caf50;
+}
+
+/* ========== LEARNING SECTION ========== */
+.learning-section {
+    padding: 100px 0;
+    background: rgba(255, 131, 50, 0.02);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 131, 50, 0.3);
+    color: #f2f2f2;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    border-color: #ff8332;
+    background: rgba(255, 131, 50, 0.1);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    border-color: #ff8332;
+    color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content h3 {
+    color: #ff8332;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.roadmap-phase {
+    margin-bottom: 30px;
+}
+
+.roadmap-phase h4 {
+    color: #ff8332;
+    font-size: 22px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ff8332;
+}
+
+.roadmap-phase ol {
+    padding-left: 40px;
+    color: #f2f2f2;
+}
+
+.roadmap-phase li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.video-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(255, 131, 50, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.video-section h4 {
+    color: #ff8332;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+}
+
+.video-list li {
+    margin-bottom: 15px;
+}
+
+.video-list a {
+    color: #f2f2f2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.video-list a:hover {
+    color: #ff8332;
+    transform: translateX(10px);
+}
+
+/* Routine Table */
+.routine-table {
+    overflow-x: auto;
+}
+
+.routine-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+.routine-table th,
+.routine-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.routine-table th {
+    background: rgba(255, 131, 50, 0.1);
+    color: #ff8332;
+    font-weight: 600;
+}
+
+.routine-table td {
+    color: #f2f2f2;
+}
+
+.tutorial-rotation {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 131, 50, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.tutorial-rotation h4 {
+    color: #ff8332;
+    margin-bottom: 15px;
+}
+
+.tutorial-rotation ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tutorial-rotation li {
+    margin-bottom: 10px;
+    color: #f2f2f2;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tutorial-rotation li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #ff8332;
+}
+
+/* Book Categories */
+.book-category {
+    margin-bottom: 30px;
+}
+
+.book-category h4 {
+    color: #ff8332;
+    font-size: 22px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ff8332;
+}
+
+.book-category ul {
+    list-style: none;
+    padding-left: 40px;
+}
+
+.book-category li {
+    margin-bottom: 12px;
+    color: #f2f2f2;
+    line-height: 1.8;
+}
+
+/* Continue in Part 2... */
+/* ========================================
+   FUTURE PLAN - STYLESHEET (PART 2)
+   ======================================== */
+
+/* ========== PROGRESS SECTION ========== */
+.progress-section {
+    padding: 100px 0;
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff8332;
+    box-shadow: 0 20px 60px rgba(255, 131, 50, 0.3);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ff8332;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #b0b0b0;
+    font-size: 16px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff8332 0%, #ffa366 100%);
+    width: 0;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+    padding: 100px 0;
+    background: rgba(255, 131, 50, 0.02);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 131, 50, 0.3);
+    border-radius: 10px;
+    color: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff8332;
+    box-shadow: 0 0 20px rgba(255, 131, 50, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 131, 50, 0.4);
+}
+
+.form-success {
+    margin-top: 20px;
+    color: #4caf50;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: rgba(26, 26, 26, 0.95);
+    border-top: 1px solid rgba(255, 131, 50, 0.2);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+.footer-tagline {
+    color: #ff8332;
+    font-size: 14px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablets and smaller laptops */
+@media (max-width: 968px) {
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .roadmap-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .tabs {
+        gap: 10px;
+    }
+
+    .tab-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(26, 26, 26, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: left 0.3s ease;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    .quote-text {
+        font-size: 18px;
+    }
+
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .tab-content {
+        padding: 25px;
+    }
+
+    .tab-content h3 {
+        font-size: 26px;
+    }
+
+    .roadmap-phase h4 {
+        font-size: 18px;
+    }
+
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .routine-table {
+        font-size: 14px;
+    }
+
+    .routine-table th,
+    .routine-table td {
+        padding: 10px;
+    }
+
+    .password-container {
+        padding: 30px 20px;
+    }
+
+    .password-container h2 {
+        font-size: 20px;
+    }
+
+    .password-icon {
+        font-size: 50px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo i {
+        font-size: 24px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .cta-btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .card-icon {
+        font-size: 36px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .roadmap-card {
+        padding: 20px;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .tab-content h3 {
+        font-size: 22px;
+    }
+
+    .video-section,
+    .tutorial-rotation {
+        padding: 20px;
+    }
+
+    .stat-number {
+        font-size: 32px;
+    }
+
+    .stat-label {
+        font-size: 14px;
+    }
+}
+
+/* ========== SMOOTH SCROLL OFFSET FOR FIXED HEADER ========== */
+section {
+    scroll-margin-top: 100px;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-center {
+    text-align: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 131, 50, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 131, 50, 0.6);
+    }
+}
+
+.glow-effect {
+    animation: glow 2s infinite;
+}
+
+/* ========== SCROLLBAR STYLING ========== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff8332;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6b1a;
+}
+
+/* ========== SELECTION STYLING ========== */
+::selection {
+    background: #ff8332;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: #ff8332;
+    color: #ffffff;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .header,
+    .hamburger,
+    .password-overlay,
+    .contact-section,
+    .footer {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .roadmap-card,
+    .tab-content,
+    .stat-card {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus styles for keyboard navigation */
+button:focus,
+input:focus,
+textarea:focus,
+a:focus {
+    outline: 2px solid #ff8332;
+    outline-offset: 2px;
+}
+
+/* ========== LOADING ANIMATION ========== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 131, 50, 0.3);
+    border-radius: 50%;
+    border-top-color: #ff8332;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== HOVER EFFECTS FOR INTERACTIVE ELEMENTS ========== */
+.interactive-hover {
+    transition: all 0.3s ease;
+}
+
+.interactive-hover:hover {
+    transform: scale(1.05);
+}
+
+/* ========== BACKDROP BLUR SUPPORT ========== */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .password-container,
+    .roadmap-card,
+    .stat-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+/* ========== DARK MODE ADJUSTMENTS (if needed in future) ========== */
+@media (prefers-color-scheme: dark) {
+    /* Already optimized for dark mode */
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+@media (prefers-contrast: high) {
+    .roadmap-card,
+    .stat-card,
+    .tab-content {
+        border-width: 2px;
+    }
+
+    .nav-link,
+    .cta-btn,
+    .password-btn,
+    .submit-btn {
+        border: 2px solid currentColor;
+    }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========== END OF STYLESHEET ========== */      
+
+
+
+      
+    </style>
+</head>
+<body style="display: none;">
+    
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-container">
+            <i class="fas fa-lock password-icon"></i>
+            <h2>Enter Password to Access Your Future Plan</h2>
+            <input type="password" id="password-input" placeholder="Enter password..." autofocus>
+            <button id="submit-password" class="password-btn">Unlock</button>
+            <p id="password-error" class="password-error"></p>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>Future Plan</span>
+                </div>
+                <nav class="nav" id="nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#roadmap" class="nav-link">My Goals</a>
+                    <a href="#learning" class="nav-link">Learning</a>
+                    <a href="#progress" class="nav-link">Progress</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Future Starts Here.</h1>
+                <p class="hero-subtitle">Track your goals, stay consistent, and visualize your growth.</p>
+                <a href="#roadmap" class="cta-btn">View Roadmap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivation Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-container">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p id="rotating-quote" class="quote-text">Success is built daily, not in a day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">My Roadmap</h2>
+            <p class="section-subtitle">Track your personal and professional goals</p>
+            
+            <div class="roadmap-grid">
+                <!-- Goal Card 1 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Learn Coding</h3>
+                    <p class="card-desc">Master React, Python, and Laravel through consistent practice.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-1" class="goal-checkbox">
+                        <label for="goal-1">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 2 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Start a Business</h3>
+                    <p class="card-desc">Build a sustainable business with strategic planning.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-2" class="goal-checkbox">
+                        <label for="goal-2">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 3 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Invest Smartly</h3>
+                    <p class="card-desc">Learn investment strategies and build wealth.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-3" class="goal-checkbox">
+                        <label for="goal-3">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 4 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Self Development</h3>
+                    <p class="card-desc">Read daily, develop mindset, and grow personally.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-4" class="goal-checkbox">
+                        <label for="goal-4">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 5 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💪</div>
+                    <h3 class="card-title">Health Goals</h3>
+                    <p class="card-desc">Maintain fitness, healthy eating, and mental wellness.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-5" class="goal-checkbox">
+                        <label for="goal-5">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 6 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Financial Goals</h3>
+                    <p class="card-desc">Build emergency fund, save, and achieve financial freedom.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-6" class="goal-checkbox">
+                        <label for="goal-6">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Blueprint Section -->
+    <section id="learning" class="learning-section">
+        <div class="container">
+            <h2 class="section-title">Full Learning & Growth Blueprint</h2>
+            <p class="section-subtitle">Your comprehensive roadmap to mastery</p>
+
+            <!-- Tabs for different roadmaps -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="react">React.js</button>
+                <button class="tab-btn" data-tab="python">Python</button>
+                <button class="tab-btn" data-tab="laravel">Laravel</button>
+                <button class="tab-btn" data-tab="routine">Daily Routine</button>
+                <button class="tab-btn" data-tab="books">Books</button>
+            </div>
+
+            <!-- React.js Content -->
+            <div class="tab-content active" id="react">
+                <h3>25-Day React.js Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Core Basics</h4>
+                    <ol>
+                        <li>What is React? Setup with Vite or CRA.</li>
+                        <li>JSX syntax, expressions, and rendering.</li>
+                        <li>Props — passing data between components.</li>
+                        <li>State management with useState.</li>
+                        <li>Handling events (onClick, onChange).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Component Mastery</h4>
+                    <ol start="6">
+                        <li>Conditional rendering, lists, and keys.</li>
+                        <li>Controlled components (forms).</li>
+                        <li>Component lifecycle & useEffect.</li>
+                        <li>Folder structure, reusable components.</li>
+                        <li>CSS Modules, inline styles, and Tailwind basics.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate Concepts</h4>
+                    <ol start="11">
+                        <li>React Router — navigating pages.</li>
+                        <li>Fetching API data with fetch/axios.</li>
+                        <li>Context API for global state.</li>
+                        <li>Custom hooks.</li>
+                        <li>Error boundaries & best practices.</li>
+                        <li>Async operations and loading states.</li>
+                        <li>React icons, modals, and UI components.</li>
+                        <li>Authentication (JWT + localStorage).</li>
+                        <li>Forms & validation (Formik/Yup).</li>
+                        <li>Deploy React app (Vercel/Netlify).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Todo App.</li>
+                        <li>Weather App (API).</li>
+                        <li>Simple Blog (CRUD).</li>
+                        <li>UI polish with Framer Motion.</li>
+                        <li>Deploy portfolio projects.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=SqcY0GlETPk" target="_blank">React Tutorial for Beginners (Master React 18)</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=CgkZ7MvWUAA" target="_blank">React Full Course for Free ⚛️</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=OA5JAmTcTz4" target="_blank">React-JS Tutorial For Beginners 2025</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Python Content -->
+            <div class="tab-content" id="python">
+                <h3>25-Day Python Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Basics</h4>
+                    <ol>
+                        <li>Setup & syntax.</li>
+                        <li>Variables and data types.</li>
+                        <li>Operators and input/output.</li>
+                        <li>Conditionals.</li>
+                        <li>Loops.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Data Structures</h4>
+                    <ol start="6">
+                        <li>Strings & string methods.</li>
+                        <li>Lists, tuples, sets, dictionaries.</li>
+                        <li>Functions and arguments.</li>
+                        <li>File handling.</li>
+                        <li>Modules and packages.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate Concepts</h4>
+                    <ol start="11">
+                        <li>Error handling.</li>
+                        <li>Comprehensions & lambdas.</li>
+                        <li>OOP concepts.</li>
+                        <li>Inheritance and polymorphism.</li>
+                        <li>JSON & APIs.</li>
+                        <li>Virtual environments and pip.</li>
+                        <li>Web scraping (requests, BeautifulSoup).</li>
+                        <li>Intro to Flask/FastAPI.</li>
+                        <li>Basic database operations.</li>
+                        <li>CLI programs.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Calculator.</li>
+                        <li>CLI Todo List.</li>
+                        <li>Weather or Currency Converter.</li>
+                        <li>Simple Flask Blog.</li>
+                        <li>Push to GitHub.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=eWRfhZUzrAc" target="_blank">Python for Beginners – Full Course</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=kqtD5dpn9C8" target="_blank">Python in 1 Hour</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ" target="_blank">Python Full Course 2025</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Laravel Content -->
+            <div class="tab-content" id="laravel">
+                <h3>25-Day Laravel Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Setup & Basics</h4>
+                    <ol>
+                        <li>Install PHP, Composer, Laravel.</li>
+                        <li>Folder structure & MVC.</li>
+                        <li>Routing and Controllers.</li>
+                        <li>Views (Blade).</li>
+                        <li>Environment setup (.env).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Database & Models</h4>
+                    <ol start="6">
+                        <li>Database setup (MySQL).</li>
+                        <li>Migrations & Eloquent ORM.</li>
+                        <li>Relationships (One-to-One, One-to-Many).</li>
+                        <li>Seeding & Factories.</li>
+                        <li>CRUD operations.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate</h4>
+                    <ol start="11">
+                        <li>Authentication (Breeze/Jetstream).</li>
+                        <li>Middleware & Route Groups.</li>
+                        <li>File uploads & storage.</li>
+                        <li>Validation & error handling.</li>
+                        <li>API routes & JSON.</li>
+                        <li>Query Builder & Collections.</li>
+                        <li>Blade components & layouts.</li>
+                        <li>Email (Mailables).</li>
+                        <li>Caching & optimization.</li>
+                        <li>Deployment.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Blog System.</li>
+                        <li>Task Manager.</li>
+                        <li>API with Postman.</li>
+                        <li>Dashboard project.</li>
+                        <li>Review + Git deployment.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=DKnn8TlJ4MA" target="_blank">Laravel Tutorial for Beginners #1 – Setup</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=eUNWzJUvkCA" target="_blank">Laravel 11 Crash Course (2024)</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=ImtZ5yENzgE" target="_blank">Laravel Framework Full Course</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Daily Routine Content -->
+            <div class="tab-content" id="routine">
+                <h3>Daily Routine (Starting 8 PM)</h3>
+                
+                <div class="routine-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🕒 Time</th>
+                                <th>🧩 Activity</th>
+                                <th>💡 Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 PM – 8:10 PM</td>
+                                <td>🙏 Prayer</td>
+                                <td>Quiet time for prayer and gratitude.</td>
+                            </tr>
+                            <tr>
+                                <td>8:10 PM – 9:10 PM</td>
+                                <td>🎓 Tutorial</td>
+                                <td>Watch one tutorial (rotate React, Python, Laravel).</td>
+                            </tr>
+                            <tr>
+                                <td>9:10 PM – 10:10 PM</td>
+                                <td>🧠 Self-Development</td>
+                                <td>Read or listen to motivational/personal-growth books.</td>
+                            </tr>
+                            <tr>
+                                <td>10:10 PM – 12:10 AM</td>
+                                <td>💻 Coding Practice</td>
+                                <td>Build mini projects, debug, or follow roadmap tasks.</td>
+                            </tr>
+                            <tr>
+                                <td>12:10 AM – 1:10 AM</td>
+                                <td>🎮 Gaming / Relaxation</td>
+                                <td>Chill and reward yourself.</td>
+                            </tr>
+                            <tr>
+                                <td>1:10 AM → Sleep</td>
+                                <td>😴 Cool Down</td>
+                                <td>Stretch, pray, and sleep.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tutorial-rotation">
+                    <h4>🌀 Tutorial Rotation</h4>
+                    <ul>
+                        <li><strong>Mon/Wed/Fri</strong> → React</li>
+                        <li><strong>Tue/Thu/Sat</strong> → Python</li>
+                        <li><strong>Sunday</strong> → Laravel & review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Books Content -->
+            <div class="tab-content" id="books">
+                <h3>📚 Book Recommendations</h3>
+                
+                <div class="book-category">
+                    <h4>💰 Investment</h4>
+                    <ul>
+                        <li><strong>The Intelligent Investor</strong> – Benjamin Graham</li>
+                        <li><strong>The Little Book of Common Sense Investing</strong> – John C. Bogle</li>
+                        <li><strong>The Psychology of Money</strong> – Morgan Housel</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🌱 Self-Development</h4>
+                    <ul>
+                        <li><strong>Atomic Habits</strong> – James Clear</li>
+                        <li><strong>The 7 Habits of Highly Effective People</strong> – Stephen R. Covey</li>
+                        <li><strong>Mindset: The New Psychology of Success</strong> – Carol S. Dweck</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>💼 Business</h4>
+                    <ul>
+                        <li><strong>Think and Grow Rich</strong> – Napoleon Hill</li>
+                        <li><strong>Influence: The Psychology of Persuasion</strong> – Robert Cialdini</li>
+                        <li><strong>The Art of the Start</strong> – Guy Kawasaki</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🎯 Strategic Planning</h4>
+                    <ul>
+                        <li><strong>Good Strategy Bad Strategy</strong> – Richard P. Rumelt</li>
+                        <li><strong>Strategy Safari</strong> – Henry Mintzberg et al.</li>
+                        <li><strong>The Strategy Book</strong> – Max McKeown</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>⚙️ Tactical Planning</h4>
+                    <ul>
+                        <li><strong>Integrated Tactical Planning</strong> – Rod Hozack et al.</li>
+                        <li><strong>A Guide to Tactical Planning</strong> – George L. Morrisey</li>
+                        <li><strong>ITP: Respond to Change, Increase Competitiveness and Reduce Costs</strong> – Todd Ferguson et al.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="section-title">Your Progress</h2>
+            <p class="section-subtitle">Track your achievements</p>
+            
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="completed-count">0</div>
+                    <div class="stat-label">Goals Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="progress-percent">0%</div>
+                    <div class="stat-label">Overall Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="remaining-count">6</div>
+                    <div class="stat-label">Goals Remaining</div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions or feedback? Reach out!</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <p class="form-success" id="form-success"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Future Plan. All Rights Reserved.</p>
+            <p class="footer-tagline">Built with passion for your success 🚀</p>
+        </div>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script>
+
+/* ========================================
+   FUTURE PLAN - MAIN JAVASCRIPT FILE
+   Simple and Easy to Understand
+   ======================================== */
+
+// ========== SETTINGS ==========
+const PASSWORD = '03122010';  // The correct password
+const TOTAL_GOALS = 6;        // Total number of goals
+
+// ========== PASSWORD CHECK ==========
+// This runs when page loads
+window.onload = function() {
+    checkPassword();
+};
+
+function checkPassword() {
+    const passwordBox = document.getElementById('password-input');
+    const submitButton = document.getElementById('submit-password');
+    const errorMessage = document.getElementById('password-error');
+    const overlay = document.getElementById('password-overlay');
+
+    // When user clicks submit button
+    submitButton.onclick = function() {
+        let userPassword = passwordBox.value;
+
+        if (userPassword === PASSWORD) {
+            // Correct! Hide password screen and show website
+            overlay.style.display = 'none';
+            document.body.style.display = 'block';
+            startWebsite();
+        } else {
+            // Wrong password
+            errorMessage.textContent = '❌ Wrong password. Try again.';
+            passwordBox.value = '';
+        }
+    };
+
+    // Allow pressing Enter key to submit
+    passwordBox.onkeypress = function(event) {
+        if (event.key === 'Enter') {
+            submitButton.click();
+        }
+    };
+}
+
+// ========== START WEBSITE FEATURES ==========
+function startWebsite() {
+    setupMobileMenu();
+    setupSmoothScroll();
+    changeQuotes();
+    setupGoalTracking();
+    updateProgress();
+    setupTabs();
+    setupContactForm();
+}
+
+// ========== MOBILE MENU ==========
+function setupMobileMenu() {
+    const menuButton = document.getElementById('hamburger');
+    const menu = document.getElementById('nav');
+    const menuLinks = document.querySelectorAll('.nav-link');
+
+    // Open/close menu when clicking hamburger
+    menuButton.onclick = function() {
+        menuButton.classList.toggle('active');
+        menu.classList.toggle('active');
+    };
+
+    // Close menu when clicking any link
+    for (let i = 0; i < menuLinks.length; i++) {
+        menuLinks[i].onclick = function() {
+            menuButton.classList.remove('active');
+            menu.classList.remove('active');
+        };
+    }
+}
+
+// ========== SMOOTH SCROLLING ==========
+function setupSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    for (let i = 0; i < links.length; i++) {
+        links[i].onclick = function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    }
+}
+
+// ========== ROTATING QUOTES ==========
+function changeQuotes() {
+    const quotes = [
+        "Success is built daily, not in a day.",
+        "The journey of a thousand miles begins with one step.",
+        "Your future is created by what you do today, not tomorrow.",
+        "Dream big, start small, but most of all, start.",
+        "The only way to do great work is to love what you do.",
+        "Believe you can and you're halfway there.",
+        "Don't watch the clock; do what it does. Keep going.",
+        "The harder you work for something, the greater you'll feel when you achieve it.",
+        "Success doesn't just find you. You have to go out and get it.",
+        "Great things never come from comfort zones."
+    ];
+
+    const quoteText = document.getElementById('rotating-quote');
+    let currentQuote = 0;
+
+    // Change quote every 7 seconds
+    setInterval(function() {
+        quoteText.style.opacity = '0';
+
+        setTimeout(function() {
+            currentQuote = currentQuote + 1;
+            if (currentQuote >= quotes.length) {
+                currentQuote = 0;
+            }
+            quoteText.textContent = quotes[currentQuote];
+            quoteText.style.opacity = '1';
+        }, 500);
+    }, 7000);
+
+    quoteText.style.transition = 'opacity 0.5s';
+}
+
+// ========== GOAL TRACKING ==========
+function setupGoalTracking() {
+    const checkboxes = document.querySelectorAll('.goal-checkbox');
+
+    // Load saved progress
+    loadProgress();
+
+    // When checkbox is clicked
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].onchange = function() {
+            const goalId = this.id;
+            const card = this.closest('.roadmap-card');
+
+            if (this.checked) {
+                // Goal completed
+                card.classList.add('completed');
+                localStorage.setItem(goalId, 'true');
+            } else {
+                // Goal not completed
+                card.classList.remove('completed');
+                localStorage.setItem(goalId, 'false');
+            }
+
+            updateProgress();
+        };
+    }
+}
+
+// Load progress from storage
+function loadProgress() {
+    const checkboxes = document.querySelectorAll('.goal-checkbox');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        const goalId = checkboxes[i].id;
+        const saved = localStorage.getItem(goalId);
+
+        if (saved === 'true') {
+            checkboxes[i].checked = true;
+            checkboxes[i].closest('.roadmap-card').classList.add('completed');
+        }
+    }
+}
+
+// ========== UPDATE PROGRESS ==========
+function updateProgress() {
+    const checkboxes = document.querySelectorAll('.goal-checkbox');
+    let completed = 0;
+
+    // Count completed goals
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            completed = completed + 1;
+        }
+    }
+
+    let remaining = TOTAL_GOALS - completed;
+    let percent = Math.round((completed / TOTAL_GOALS) * 100);
+
+    // Update numbers on page
+    document.getElementById('completed-count').textContent = completed;
+    document.getElementById('remaining-count').textContent = remaining;
+    document.getElementById('progress-percent').textContent = percent + '%';
+
+    // Update progress bar
+    document.getElementById('progress-bar').style.width = percent + '%';
+
+    // Celebrate if all done
+    if (completed === TOTAL_GOALS) {
+        celebrate();
+    }
+}
+
+// Show celebration message
+function celebrate() {
+    const progressSection = document.querySelector('.progress-section');
+    
+    // Check if message already exists
+    if (!document.querySelector('.celebration-msg')) {
+        const message = document.createElement('div');
+        message.className = 'celebration-msg';
+        message.innerHTML = '<h3 style="text-align: center; color: #4caf50; margin-top: 20px;">🎉 Amazing! All goals completed! 🎉</h3>';
+        progressSection.appendChild(message);
+    }
+}
+
+// ========== TABS ==========
+function setupTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].onclick = function() {
+            const targetTab = this.getAttribute('data-tab');
+
+            // Remove active from all
+            for (let j = 0; j < tabButtons.length; j++) {
+                tabButtons[j].classList.remove('active');
+                tabContents[j].classList.remove('active');
+            }
+
+            // Add active to clicked
+            this.classList.add('active');
+            document.getElementById(targetTab).classList.add('active');
+        };
+    }
+}
+
+// ========== CONTACT FORM ==========
+function setupContactForm() {
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+
+    form.onsubmit = function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Check if fields are empty
+        if (name === '' || email === '' || message === '') {
+            successMsg.textContent = '❌ Please fill all fields.';
+            successMsg.style.color = '#ff4444';
+            return;
+        }
+
+        // Check if email is valid
+        if (!email.includes('@') || !email.includes('.')) {
+            successMsg.textContent = '❌ Please enter a valid email.';
+            successMsg.style.color = '#ff4444';
+            return;
+        }
+
+        // Success!
+        successMsg.textContent = '✓ Message sent! We will reply soon.';
+        successMsg.style.color = '#4caf50';
+        form.reset();
+
+        // Hide message after 5 seconds
+        setTimeout(function() {
+            successMsg.textContent = '';
+        }, 5000);
+    };
+}
+
+// ========== HEADER EFFECT ON SCROLL ==========
+window.onscroll = function() {
+    const header = document.querySelector('.header');
+
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(26, 26, 26, 0.98)';
+        header.style.boxShadow = '0 5px 20px rgba(255, 131, 50, 0.2)';
+    } else {
+        header.style.background = 'rgba(26, 26, 26, 0.95)';
+        header.style.boxShadow = 'none';
+    }
+};
+
+// ========== RESET PROGRESS (for testing) ==========
+function resetProgress() {
+    const checkboxes = document.querySelectorAll('.goal-checkbox');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+        checkboxes[i].closest('.roadmap-card').classList.remove('completed');
+        localStorage.removeItem(checkboxes[i].id);
+    }
+
+    updateProgress();
+
+    const celebrationMsg = document.querySelector('.celebration-msg');
+    if (celebrationMsg) {
+        celebrationMsg.remove();
+    }
+
+    console.log('✓ Progress reset!');
+}
+
+// Make resetProgress available in console
+window.resetProgress = resetProgress;
+
+// ========== WELCOME MESSAGE ==========
+console.log('🚀 Future Plan is ready!');
+console.log('Type resetProgress() to clear all goals');
+
+// ========== END ==========
+      
+    </script>
+</body>
+</html>

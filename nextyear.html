@@ -1210,19 +1210,9 @@ a:focus {
       
     </style>
 </head>
-<body style="display: none;">
+<body>
     
-    <!-- Password Protection Overlay -->
-    <div id="password-overlay" class="password-overlay">
-        <div class="password-container">
-            <i class="fas fa-lock password-icon"></i>
-            <h2>Enter Password to Access Your Future Plan</h2>
-            <input type="password" id="password-input" placeholder="Enter password..." autofocus>
-            <button id="submit-password" class="password-btn">Unlock</button>
-            <p id="password-error" class="password-error"></p>
-        </div>
-    </div>
-
+   
     <!-- Header / Navigation -->
     <header class="header">
         <div class="container">
@@ -1730,44 +1720,6 @@ a:focus {
    ======================================== */
 
 // ========== SETTINGS ==========
-const PASSWORD = '03122010';  // The correct password
-const TOTAL_GOALS = 6;        // Total number of goals
-
-// ========== PASSWORD CHECK ==========
-// This runs when page loads
-window.onload = function() {
-    checkPassword();
-};
-
-function checkPassword() {
-    const passwordBox = document.getElementById('password-input');
-    const submitButton = document.getElementById('submit-password');
-    const errorMessage = document.getElementById('password-error');
-    const overlay = document.getElementById('password-overlay');
-
-    // When user clicks submit button
-    submitButton.onclick = function() {
-        let userPassword = passwordBox.value;
-
-        if (userPassword === PASSWORD) {
-            // Correct! Hide password screen and show website
-            overlay.style.display = 'none';
-            document.body.style.display = 'block';
-            startWebsite();
-        } else {
-            // Wrong password
-            errorMessage.textContent = '❌ Wrong password. Try again.';
-            passwordBox.value = '';
-        }
-    };
-
-    // Allow pressing Enter key to submit
-    passwordBox.onkeypress = function(event) {
-        if (event.key === 'Enter') {
-            submitButton.click();
-        }
-    };
-}
 
 // ========== START WEBSITE FEATURES ==========
 function startWebsite() {

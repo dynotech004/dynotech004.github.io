@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Plan - Your Personal Growth Tracker</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+   <style>
+/* ========================================
+   FUTURE PLAN - COMPLETE STYLESHEET
+   NO PASSWORD - ALL CONTENT VISIBLE
+   ======================================== */
+
+/* ========== BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+.header {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 131, 50, 0.2);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff8332;
+}
+
+.logo i {
+    font-size: 28px;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff8332;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff8332;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* ========================================
+   CSS FOR TECH & AI BOOKS SECTION
+   Add this to your style.css file
+   ======================================== */
+
+/* Enhanced Book Category Styling */
+.book-category {
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 131, 50, 0.1);
+    transition: all 0.3s ease;
+}
+
+.book-category:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 131, 50, 0.3);
+    transform: translateX(5px);
+}
+
+.book-category h4 {
+    color: #ff8332;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 4px solid #ff8332;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.book-category ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.book-category li {
+    margin-bottom: 20px;
+    color: #f2f2f2;
+    line-height: 1.8;
+    padding: 15px;
+    background: rgba(255, 131, 50, 0.03);
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.book-category li:hover {
+    background: rgba(255, 131, 50, 0.08);
+    border-left-color: #ff8332;
+    transform: translateX(10px);
+}
+
+.book-category li strong {
+    color: #ff8332;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.book-desc {
+    display: block;
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.6;
+    padding-left: 10px;
+    border-left: 2px solid rgba(255, 131, 50, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .book-category {
+        padding: 20px 15px;
+    }
+    
+    .book-category h4 {
+        font-size: 20px;
+    }
+    
+    .book-category li {
+        padding: 12px;
+    }
+    
+    .book-category li strong {
+        font-size: 16px;
+    }
+    
+    .book-desc {
+        font-size: 13px;
+    }
+}
+
+/* Optional: Add an icon animation on hover */
+.book-category h4::before {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.book-category:hover h4::before {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Add a subtle glow effect to the entire books tab */
+#books {
+    position: relative;
+}
+
+#books::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff8332, transparent);
+    opacity: 0.5;
+}
+
+/* Reading progress indicator (optional visual enhancement) */
+.book-category li::after {
+    content: '📖';
+    position: absolute;
+    right: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 20px;
+}
+
+.book-category li:hover::after {
+    opacity: 0.6;
+}
+
+/* Make the book list more compact on mobile */
+@media (max-width: 480px) {
+    .book-category ul {
+        padding-left: 10px;
+    }
+    
+    .book-category li {
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+}
+
+/* ========== END OF CSS ========== */
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ff8332;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 131, 50, 0.1) 0%, transparent 70%);
+    animation: float 20s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-100px, -100px); }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ff8332 0%, #ffa366 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideDown 1s ease;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #f2f2f2;
+    margin-bottom: 40px;
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 131, 50, 0.3);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(255, 131, 50, 0.5);
+}
+
+/* ========== QUOTE SECTION ========== */
+.quote-section {
+    padding: 60px 0;
+    background: rgba(255, 131, 50, 0.05);
+}
+
+.quote-container {
+    text-align: center;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 40px;
+    color: #ff8332;
+    opacity: 0.3;
+    margin-bottom: 20px;
+}
+
+.quote-text {
+    font-size: 24px;
+    font-style: italic;
+    color: #f2f2f2;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+    transition: opacity 0.5s ease;
+}
+
+/* ========== SECTION TITLES ========== */
+.section-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff8332;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #b0b0b0;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+/* ========== ROADMAP SECTION ========== */
+.roadmap-section {
+    padding: 100px 0;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.roadmap-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 131, 50, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.roadmap-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff8332;
+    box-shadow: 0 20px 60px rgba(255, 131, 50, 0.3);
+}
+
+.roadmap-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ff8332;
+}
+
+.card-desc {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.card-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.goal-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #ff8332;
+}
+
+.card-checkbox label {
+    cursor: pointer;
+    color: #f2f2f2;
+}
+
+.completed-badge {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.roadmap-card.completed .completed-badge {
+    display: block;
+}
+
+.roadmap-card.completed {
+    background: rgba(76, 175, 80, 0.1);
+    border-color: #4caf50;
+}
+
+/* ========== LEARNING SECTION ========== */
+.learning-section {
+    padding: 100px 0;
+    background: rgba(255, 131, 50, 0.02);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 131, 50, 0.3);
+    color: #f2f2f2;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    border-color: #ff8332;
+    background: rgba(255, 131, 50, 0.1);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    border-color: #ff8332;
+    color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content h3 {
+    color: #ff8332;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.roadmap-phase {
+    margin-bottom: 30px;
+}
+
+.roadmap-phase h4 {
+    color: #ff8332;
+    font-size: 22px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ff8332;
+}
+
+.roadmap-phase ol {
+    padding-left: 40px;
+    color: #f2f2f2;
+}
+
+.roadmap-phase li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.video-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(255, 131, 50, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.video-section h4 {
+    color: #ff8332;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+}
+
+.video-list li {
+    margin-bottom: 15px;
+}
+
+.video-list a {
+    color: #f2f2f2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.video-list a:hover {
+    color: #ff8332;
+    transform: translateX(10px);
+}
+
+/* ========== ROUTINE TABLE ========== */
+.routine-table {
+    overflow-x: auto;
+}
+
+.routine-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+.routine-table th,
+.routine-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.routine-table th {
+    background: rgba(255, 131, 50, 0.1);
+    color: #ff8332;
+    font-weight: 600;
+}
+
+.routine-table td {
+    color: #f2f2f2;
+}
+
+.tutorial-rotation {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 131, 50, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.tutorial-rotation h4 {
+    color: #ff8332;
+    margin-bottom: 15px;
+}
+
+.tutorial-rotation ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tutorial-rotation li {
+    margin-bottom: 10px;
+    color: #f2f2f2;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tutorial-rotation li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #ff8332;
+}
+
+/* ========== BOOK CATEGORIES ========== */
+.book-category {
+    margin-bottom: 30px;
+}
+
+.book-category h4 {
+    color: #ff8332;
+    font-size: 22px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #ff8332;
+}
+
+.book-category ul {
+    list-style: none;
+    padding-left: 40px;
+}
+
+.book-category li {
+    margin-bottom: 12px;
+    color: #f2f2f2;
+    line-height: 1.8;
+}
+
+/* ========== PROGRESS SECTION ========== */
+.progress-section {
+    padding: 100px 0;
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 131, 50, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff8332;
+    box-shadow: 0 20px 60px rgba(255, 131, 50, 0.3);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ff8332;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #b0b0b0;
+    font-size: 16px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 131, 50, 0.2);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff8332 0%, #ffa366 100%);
+    width: 0;
+    transition: width 0.5s ease;
+    border-radius: 20px;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+    padding: 100px 0;
+    background: rgba(255, 131, 50, 0.02);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 131, 50, 0.3);
+    border-radius: 10px;
+    color: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff8332;
+    box-shadow: 0 0 20px rgba(255, 131, 50, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff8332 0%, #ff6b1a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 131, 50, 0.4);
+}
+
+.form-success {
+    margin-top: 20px;
+    color: #4caf50;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: rgba(26, 26, 26, 0.95);
+    border-top: 1px solid rgba(255, 131, 50, 0.2);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+.footer-tagline {
+    color: #ff8332;
+    font-size: 14px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(26, 26, 26, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: left 0.3s ease;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .quote-text {
+        font-size: 18px;
+    }
+
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-content {
+        padding: 25px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff8332;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6b1a;
+}
+
+/* ========== SELECTION ========== */
+::selection {
+    background: #ff8332;
+    color: #ffffff;
+}
+
+/* ========== SMOOTH SCROLL OFFSET ========== */
+section {
+    scroll-margin-top: 100px;
+}
+
+/* ========== END ========== */
+     
+   </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>Future Plan</span>
+                </div>
+                <nav class="nav" id="nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#roadmap" class="nav-link">My Goals</a>
+                    <a href="#learning" class="nav-link">Learning</a>
+                    <a href="#progress" class="nav-link">Progress</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Future Starts Here.</h1>
+                <p class="hero-subtitle">Track your goals, stay consistent, and visualize your growth.</p>
+                <a href="#roadmap" class="cta-btn">View Roadmap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivation Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-container">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p id="rotating-quote" class="quote-text">Success is built daily, not in a day.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">My Roadmap</h2>
+            <p class="section-subtitle">Track your personal and professional goals</p>
+            
+            <div class="roadmap-grid">
+                <!-- Goal Card 1 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Learn Coding</h3>
+                    <p class="card-desc">Master React, Python, and Laravel through consistent practice.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-1" class="goal-checkbox">
+                        <label for="goal-1">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 2 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Start a Business</h3>
+                    <p class="card-desc">Build a sustainable business with strategic planning.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-2" class="goal-checkbox">
+                        <label for="goal-2">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 3 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Invest Smartly</h3>
+                    <p class="card-desc">Learn investment strategies and build wealth.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-3" class="goal-checkbox">
+                        <label for="goal-3">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 4 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">📚</div>
+                    <h3 class="card-title">Self Development</h3>
+                    <p class="card-desc">Read daily, develop mindset, and grow personally.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-4" class="goal-checkbox">
+                        <label for="goal-4">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 5 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💪</div>
+                    <h3 class="card-title">Health Goals</h3>
+                    <p class="card-desc">Maintain fitness, healthy eating, and mental wellness.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-5" class="goal-checkbox">
+                        <label for="goal-5">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+
+                <!-- Goal Card 6 -->
+                <div class="roadmap-card">
+                    <div class="card-icon">💰</div>
+                    <h3 class="card-title">Financial Goals</h3>
+                    <p class="card-desc">Build emergency fund, save, and achieve financial freedom.</p>
+                    <div class="card-checkbox">
+                        <input type="checkbox" id="goal-6" class="goal-checkbox">
+                        <label for="goal-6">Mark as Complete</label>
+                    </div>
+                    <span class="completed-badge">✓ Completed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Blueprint Section -->
+    <section id="learning" class="learning-section">
+        <div class="container">
+            <h2 class="section-title">Full Learning & Growth Blueprint</h2>
+            <p class="section-subtitle">Your comprehensive roadmap to mastery</p>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="react">React.js</button>
+                <button class="tab-btn" data-tab="python">Python</button>
+                <button class="tab-btn" data-tab="laravel">Laravel</button>
+                <button class="tab-btn" data-tab="routine">Daily Routine</button>
+                <button class="tab-btn" data-tab="books">Books</button>
+            </div>
+
+            <!-- React.js Content -->
+            <div class="tab-content active" id="react">
+                <h3>25-Day React.js Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Core Basics</h4>
+                    <ol>
+                        <li>What is React? Setup with Vite or CRA.</li>
+                        <li>JSX syntax, expressions, and rendering.</li>
+                        <li>Props — passing data between components.</li>
+                        <li>State management with useState.</li>
+                        <li>Handling events (onClick, onChange).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Component Mastery</h4>
+                    <ol start="6">
+                        <li>Conditional rendering, lists, and keys.</li>
+                        <li>Controlled components (forms).</li>
+                        <li>Component lifecycle & useEffect.</li>
+                        <li>Folder structure, reusable components.</li>
+                        <li>CSS Modules, inline styles, and Tailwind basics.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate Concepts</h4>
+                    <ol start="11">
+                        <li>React Router — navigating pages.</li>
+                        <li>Fetching API data with fetch/axios.</li>
+                        <li>Context API for global state.</li>
+                        <li>Custom hooks.</li>
+                        <li>Error boundaries & best practices.</li>
+                        <li>Async operations and loading states.</li>
+                        <li>React icons, modals, and UI components.</li>
+                        <li>Authentication (JWT + localStorage).</li>
+                        <li>Forms & validation (Formik/Yup).</li>
+                        <li>Deploy React app (Vercel/Netlify).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Todo App.</li>
+                        <li>Weather App (API).</li>
+                        <li>Simple Blog (CRUD).</li>
+                        <li>UI polish with Framer Motion.</li>
+                        <li>Deploy portfolio projects.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=SqcY0GlETPk" target="_blank">React Tutorial for Beginners (Master React 18)</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=CgkZ7MvWUAA" target="_blank">React Full Course for Free ⚛️</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=OA5JAmTcTz4" target="_blank">React-JS Tutorial For Beginners 2025</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Python Content -->
+            <div class="tab-content" id="python">
+                <h3>25-Day Python Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Basics</h4>
+                    <ol>
+                        <li>Setup & syntax.</li>
+                        <li>Variables and data types.</li>
+                        <li>Operators and input/output.</li>
+                        <li>Conditionals.</li>
+                        <li>Loops.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Data Structures</h4>
+                    <ol start="6">
+                        <li>Strings & string methods.</li>
+                        <li>Lists, tuples, sets, dictionaries.</li>
+                        <li>Functions and arguments.</li>
+                        <li>File handling.</li>
+                        <li>Modules and packages.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate Concepts</h4>
+                    <ol start="11">
+                        <li>Error handling.</li>
+                        <li>Comprehensions & lambdas.</li>
+                        <li>OOP concepts.</li>
+                        <li>Inheritance and polymorphism.</li>
+                        <li>JSON & APIs.</li>
+                        <li>Virtual environments and pip.</li>
+                        <li>Web scraping (requests, BeautifulSoup).</li>
+                        <li>Intro to Flask/FastAPI.</li>
+                        <li>Basic database operations.</li>
+                        <li>CLI programs.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Calculator.</li>
+                        <li>CLI Todo List.</li>
+                        <li>Weather or Currency Converter.</li>
+                        <li>Simple Flask Blog.</li>
+                        <li>Push to GitHub.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=eWRfhZUzrAc" target="_blank">Python for Beginners – Full Course</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=kqtD5dpn9C8" target="_blank">Python in 1 Hour</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=K5KVEU3aaeQ" target="_blank">Python Full Course 2025</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Laravel Content -->
+            <div class="tab-content" id="laravel">
+                <h3>25-Day Laravel Roadmap</h3>
+                
+                <div class="roadmap-phase">
+                    <h4>Days 1–5: Setup & Basics</h4>
+                    <ol>
+                        <li>Install PHP, Composer, Laravel.</li>
+                        <li>Folder structure & MVC.</li>
+                        <li>Routing and Controllers.</li>
+                        <li>Views (Blade).</li>
+                        <li>Environment setup (.env).</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 6–10: Database & Models</h4>
+                    <ol start="6">
+                        <li>Database setup (MySQL).</li>
+                        <li>Migrations & Eloquent ORM.</li>
+                        <li>Relationships (One-to-One, One-to-Many).</li>
+                        <li>Seeding & Factories.</li>
+                        <li>CRUD operations.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 11–20: Intermediate</h4>
+                    <ol start="11">
+                        <li>Authentication (Breeze/Jetstream).</li>
+                        <li>Middleware & Route Groups.</li>
+                        <li>File uploads & storage.</li>
+                        <li>Validation & error handling.</li>
+                        <li>API routes & JSON.</li>
+                        <li>Query Builder & Collections.</li>
+                        <li>Blade components & layouts.</li>
+                        <li>Email (Mailables).</li>
+                        <li>Caching & optimization.</li>
+                        <li>Deployment.</li>
+                    </ol>
+                </div>
+
+                <div class="roadmap-phase">
+                    <h4>Days 21–25: Projects</h4>
+                    <ol start="21">
+                        <li>Blog System.</li>
+                        <li>Task Manager.</li>
+                        <li>API with Postman.</li>
+                        <li>Dashboard project.</li>
+                        <li>Review + Git deployment.</li>
+                    </ol>
+                </div>
+
+                <div class="video-section">
+                    <h4><i class="fab fa-youtube"></i> Tutorial Videos</h4>
+                    <ul class="video-list">
+                        <li><a href="https://www.youtube.com/watch?v=DKnn8TlJ4MA" target="_blank">Laravel Tutorial for Beginners #1 – Setup</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=eUNWzJUvkCA" target="_blank">Laravel 11 Crash Course (2024)</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=ImtZ5yENzgE" target="_blank">Laravel Framework Full Course</a></li>
+                    </ul>
+                </div>
+            </div>
+    </section>
+            <!-- CONTINUE TO PART 2 FOR: Daily Routine, Books, Progress, Contact, Footer -->
+<!-- ========================================
+     PART 2: ADD THIS AFTER LARAVEL SECTION
+     BEFORE THE CLOSING </div></div></section>
+     ======================================== -->
+
+            <!-- Daily Routine Content -->
+            <div class="tab-content" id="routine">
+                <h3>Daily Routine (Starting 8 PM)</h3>
+                
+                <div class="routine-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🕒 Time</th>
+                                <th>🧩 Activity</th>
+                                <th>💡 Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 PM – 8:10 PM</td>
+                                <td>🙏 Prayer</td>
+                                <td>Quiet time for prayer and gratitude.</td>
+                            </tr>
+                            <tr>
+                                <td>8:10 PM – 9:10 PM</td>
+                                <td>🎓 Tutorial</td>
+                                <td>Watch one tutorial (rotate React, Python, Laravel).</td>
+                            </tr>
+                            <tr>
+                                <td>9:10 PM – 10:10 PM</td>
+                                <td>🧠 Self-Development</td>
+                                <td>Read or listen to motivational/personal-growth books.</td>
+                            </tr>
+                            <tr>
+                                <td>10:10 PM – 12:10 AM</td>
+                                <td>💻 Coding Practice</td>
+                                <td>Build mini projects, debug, or follow roadmap tasks.</td>
+                            </tr>
+                            <tr>
+                                <td>12:10 AM – 1:10 AM</td>
+                                <td>🎮 Gaming / Relaxation</td>
+                                <td>Chill and reward yourself.</td>
+                            </tr>
+                            <tr>
+                                <td>1:10 AM → Sleep</td>
+                                <td>😴 Cool Down</td>
+                                <td>Stretch, pray, and sleep.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tutorial-rotation">
+                    <h4>🌀 Tutorial Rotation</h4>
+                    <ul>
+                        <li><strong>Mon/Wed/Fri</strong> → React</li>
+                        <li><strong>Tue/Thu/Sat</strong> → Python</li>
+                        <li><strong>Sunday</strong> → Laravel & review</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Books Content -->
+            <div class="tab-content" id="books">
+                <h3>📚 Book Recommendations</h3>
+                
+                <div class="book-category">
+                    <h4>💰 Investment</h4>
+                    <ul>
+                        <li><strong>The Intelligent Investor</strong> – Benjamin Graham</li>
+                        <li><strong>The Little Book of Common Sense Investing</strong> – John C. Bogle</li>
+                        <li><strong>The Psychology of Money</strong> – Morgan Housel</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🌱 Self-Development</h4>
+                    <ul>
+                        <li><strong>Atomic Habits</strong> – James Clear</li>
+                        <li><strong>The 7 Habits of Highly Effective People</strong> – Stephen R. Covey</li>
+                        <li><strong>Mindset: The New Psychology of Success</strong> – Carol S. Dweck</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>💼 Business</h4>
+                    <ul>
+                        <li><strong>Think and Grow Rich</strong> – Napoleon Hill</li>
+                        <li><strong>Influence: The Psychology of Persuasion</strong> – Robert Cialdini</li>
+                        <li><strong>The Art of the Start</strong> – Guy Kawasaki</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🎯 Strategic Planning</h4>
+                    <ul>
+                        <li><strong>Good Strategy Bad Strategy</strong> – Richard P. Rumelt</li>
+                        <li><strong>Strategy Safari</strong> – Henry Mintzberg et al.</li>
+                        <li><strong>The Strategy Book</strong> – Max McKeown</li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>⚙️ Tactical Planning</h4>
+                    <ul>
+                        <li><strong>Integrated Tactical Planning</strong> – Rod Hozack et al.</li>
+                        <li><strong>A Guide to Tactical Planning</strong> – George L. Morrisey</li>
+                        <li><strong>ITP: Respond to Change, Increase Competitiveness and Reduce Costs</strong> – Todd Ferguson et al.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="section-title">Your Progress</h2>
+            <p class="section-subtitle">Track your achievements</p>
+            
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="completed-count">0</div>
+                    <div class="stat-label">Goals Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="progress-percent">0%</div>
+                    <div class="stat-label">Overall Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="remaining-count">6</div>
+                    <div class="stat-label">Goals Remaining</div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Have questions or feedback? Reach out!</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <p class="form-success" id="form-success"></p>
+            </form>
+        </div>
+    </section>
+
+
+
+  <!-- ========================================
+     TECH & AI MONEY-MAKING BOOKS SECTION
+     Add this inside the "Books" tab content
+     After the existing book categories
+     ======================================== -->
+
+                <div class="book-category">
+                    <h4>🚀 Tech Entrepreneurship & Startup Wealth</h4>
+                    <ul>
+                        <li><strong>The Millionaire Fastlane</strong> – MJ DeMarco<br>
+                        <span class="book-desc">Escape the 9-5 and build scalable wealth using technology and leverage.</span></li>
+                        <li><strong>The $100 Startup</strong> – Chris Guillebeau<br>
+                        <span class="book-desc">Real examples of profitable tech businesses built with small capital.</span></li>
+                        <li><strong>Hooked: How to Build Habit-Forming Products</strong> – Nir Eyal<br>
+                        <span class="book-desc">Product psychology for apps, SaaS, and AI tools that keep users coming back.</span></li>
+                        <li><strong>Crushing It!</strong> – Gary Vaynerchuk<br>
+                        <span class="book-desc">Build a digital brand and turn it into income using content and tech.</span></li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🤖 Making Money with AI</h4>
+                    <ul>
+                        <li><strong>AI Superpowers</strong> – Kai-Fu Lee<br>
+                        <span class="book-desc">How AI is transforming the economy and positioning yourself for opportunities.</span></li>
+                        <li><strong>The Future Is Faster Than You Think</strong> – Peter Diamandis<br>
+                        <span class="book-desc">AI, robotics, and digital tools creating new industries and wealth.</span></li>
+                        <li><strong>The Fourth Industrial Revolution</strong> – Klaus Schwab<br>
+                        <span class="book-desc">How AI changes business, finance, and where money will flow next.</span></li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>💼 Business Models & Wealth in Tech</h4>
+                    <ul>
+                        <li><strong>The Personal MBA</strong> – Josh Kaufman<br>
+                        <span class="book-desc">Essential business skills for building profitable tech companies.</span></li>
+                        <li><strong>Dotcom Secrets</strong> – Russell Brunson<br>
+                        <span class="book-desc">Marketing funnels for SaaS, digital products, and AI tools.</span></li>
+                        <li><strong>Million Dollar Weekend</strong> – Noah Kagan<br>
+                        <span class="book-desc">Start and monetize businesses fast using AI and the internet.</span></li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>💡 AI Tools, Automation & Digital Wealth</h4>
+                    <ul>
+                        <li><strong>Life 3.0</strong> – Max Tegmark<br>
+                        <span class="book-desc">AI's impact on jobs and creativity - spot profitable opportunities early.</span></li>
+                        <li><strong>The Rise of the Robots</strong> – Martin Ford<br>
+                        <span class="book-desc">How automation changes jobs and which skills/businesses will profit most.</span></li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🧠 Skill Development for Tech & AI</h4>
+                    <ul>
+                        <li><strong>Deep Work</strong> – Cal Newport<br>
+                        <span class="book-desc">Focus deeply to build apps, learn AI coding, and create tech products.</span></li>
+                        <li><strong>The Pragmatic Programmer</strong> – Andrew Hunt & David Thomas<br>
+                        <span class="book-desc">Become a highly paid developer or technical entrepreneur.</span></li>
+                    </ul>
+                </div>
+
+                <div class="book-category">
+                    <h4>🌐 Building Tech Products (Web, Apps, AI)</h4>
+                    <ul>
+                        <li><strong>Lean Analytics</strong> – Alistair Croll<br>
+                        <span class="book-desc">Find profitable opportunities using data for SaaS and AI tools.</span></li>
+                        <li><strong>The Cold Start Problem</strong> – Andrew Chen<br>
+                        <span class="book-desc">How tech giants grow from zero to millions of users.</span></li>
+                    </ul>
+                </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Future Plan. All Rights Reserved.</p>
+            <p class="footer-tagline">Built with passion for your success 🚀</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script>
+/* ========================================
+   FUTURE PLAN - SUPER SIMPLE JAVASCRIPT
+   ======================================== */
+
+// ========== MOBILE MENU ==========
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+
+hamburger.onclick = function() {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+};
+
+// Close menu when clicking a link
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(function(link) {
+    link.onclick = function() {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+    };
+});
+
+// ========== SMOOTH SCROLL ==========
+const scrollLinks = document.querySelectorAll('a[href^="#"]');
+scrollLinks.forEach(function(link) {
+    link.onclick = function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+});
+
+// ========== ROTATING QUOTES ==========
+const quotes = [
+    "Success is built daily, not in a day.",
+    "The journey of a thousand miles begins with one step.",
+    "Your future is created by what you do today, not tomorrow.",
+    "Dream big, start small, but most of all, start.",
+    "The only way to do great work is to love what you do.",
+    "Believe you can and you're halfway there.",
+    "Don't watch the clock; do what it does. Keep going.",
+    "Success doesn't just find you. You have to go out and get it.",
+    "Great things never come from comfort zones."
+];
+
+const quoteText = document.getElementById('rotating-quote');
+let quoteIndex = 0;
+
+setInterval(function() {
+    quoteText.style.opacity = '0';
+    
+    setTimeout(function() {
+        quoteIndex++;
+        if (quoteIndex >= quotes.length) {
+            quoteIndex = 0;
+        }
+        quoteText.textContent = quotes[quoteIndex];
+        quoteText.style.opacity = '1';
+    }, 500);
+}, 7000);
+
+// ========== GOAL TRACKING ==========
+const checkboxes = document.querySelectorAll('.goal-checkbox');
+
+// Load saved goals
+checkboxes.forEach(function(checkbox) {
+    const saved = localStorage.getItem(checkbox.id);
+    if (saved === 'true') {
+        checkbox.checked = true;
+        checkbox.closest('.roadmap-card').classList.add('completed');
+    }
+});
+
+// Save when checked
+checkboxes.forEach(function(checkbox) {
+    checkbox.onchange = function() {
+        const card = this.closest('.roadmap-card');
+        
+        if (this.checked) {
+            card.classList.add('completed');
+            localStorage.setItem(this.id, 'true');
+        } else {
+            card.classList.remove('completed');
+            localStorage.setItem(this.id, 'false');
+        }
+        
+        updateProgress();
+    };
+});
+
+// ========== UPDATE PROGRESS ==========
+function updateProgress() {
+    let completed = 0;
+    
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            completed++;
+        }
+    });
+    
+    const total = 6;
+    const remaining = total - completed;
+    const percent = Math.round((completed / total) * 100);
+    
+    document.getElementById('completed-count').textContent = completed;
+    document.getElementById('remaining-count').textContent = remaining;
+    document.getElementById('progress-percent').textContent = percent + '%';
+    document.getElementById('progress-bar').style.width = percent + '%';
+    
+    if (completed === total) {
+        const progressSection = document.querySelector('.progress-section');
+        if (!document.querySelector('.celebration-msg')) {
+            const msg = document.createElement('div');
+            msg.className = 'celebration-msg';
+            msg.innerHTML = '<h3 style="text-align:center; color:#4caf50; margin-top:20px;">🎉 All goals completed! 🎉</h3>';
+            progressSection.appendChild(msg);
+        }
+    }
+}
+
+// Run on page load
+updateProgress();
+
+// ========== TABS ==========
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(function(button) {
+    button.onclick = function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        tabButtons.forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        
+        tabContents.forEach(function(content) {
+            content.classList.remove('active');
+        });
+        
+        this.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+    };
+});
+
+// ========== CONTACT FORM ==========
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
+
+contactForm.onsubmit = function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    if (!name || !email || !message) {
+        formSuccess.textContent = '❌ Please fill all fields.';
+        formSuccess.style.color = '#ff4444';
+        return;
+    }
+    
+    if (!email.includes('@')) {
+        formSuccess.textContent = '❌ Please enter a valid email.';
+        formSuccess.style.color = '#ff4444';
+        return;
+    }
+    
+    formSuccess.textContent = '✓ Message sent successfully!';
+    formSuccess.style.color = '#4caf50';
+    contactForm.reset();
+    
+    setTimeout(function() {
+        formSuccess.textContent = '';
+    }, 5000);
+};
+
+// ========== HEADER SCROLL EFFECT ==========
+window.onscroll = function() {
+    const header = document.querySelector('.header');
+    
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(26, 26, 26, 0.98)';
+        header.style.boxShadow = '0 5px 20px rgba(255, 131, 50, 0.2)';
+    } else {
+        header.style.background = 'rgba(26, 26, 26, 0.95)';
+        header.style.boxShadow = 'none';
+    }
+};
+
+// ========== RESET PROGRESS ==========
+function resetProgress() {
+    checkboxes.forEach(function(checkbox) {
+        checkbox.checked = false;
+        checkbox.closest('.roadmap-card').classList.remove('completed');
+        localStorage.removeItem(checkbox.id);
+    });
+    
+    updateProgress();
+    
+    const celebrationMsg = document.querySelector('.celebration-msg');
+    if (celebrationMsg) {
+        celebrationMsg.remove();
+    }
+    
+    console.log('✓ Progress reset!');
+}
+
+window.resetProgress = resetProgress;
+
+console.log('🚀 Future Plan Ready!');
+console.log('Type resetProgress() to clear all goals');
+      
+    </script>
+</body>
+               </html>

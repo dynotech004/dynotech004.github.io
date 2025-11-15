@@ -1526,7 +1526,18 @@ section {
 /* ========================================
    FUTURE PLAN - SUPER SIMPLE JAVASCRIPT
    ======================================== */
+window.onload = function () {
+            let correctPassword = "03122010"; // Your password
+            let userInput = prompt("Enter password to access this page:");
 
+            // If password is wrong or user pressed cancel
+            if (userInput !== correctPassword) {
+                document.body.style.display = "none";
+                alert("Access Denied: Wrong password");
+            } else {
+                alert("Access Granted");
+            }
+        };
 // ========== MOBILE MENU ==========
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');

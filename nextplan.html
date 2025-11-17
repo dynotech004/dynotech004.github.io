@@ -553,7 +553,242 @@ body {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* ========================================
+   PROJECT MANAGEMENT ROADMAP CSS
+   Add this to your style.css file
+   ======================================== */
 
+/* Roadmap Introduction */
+.roadmap-intro {
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 16px;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+/* Week Container */
+.roadmap-week {
+    margin-bottom: 50px;
+    background: rgba(255, 131, 50, 0.03);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 131, 50, 0.2);
+    transition: all 0.3s ease;
+}
+
+.roadmap-week:hover {
+    background: rgba(255, 131, 50, 0.05);
+    border-color: rgba(255, 131, 50, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 131, 50, 0.2);
+}
+
+/* Week Title */
+.week-title {
+    color: #ff8332;
+    font-size: 26px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 131, 50, 0.1);
+    border-radius: 10px;
+    border-left: 5px solid #ff8332;
+    font-weight: 700;
+}
+
+/* Week Goal */
+.week-goal {
+    color: #ffa366;
+    font-size: 18px;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    background: rgba(255, 131, 50, 0.05);
+    border-radius: 8px;
+    font-weight: 600;
+    border-left: 3px solid #ffa366;
+}
+
+/* Day Phase */
+.roadmap-phase h5 {
+    color: #ff8332;
+    font-size: 20px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+    border-left: 3px solid #ff8332;
+}
+
+.roadmap-phase ul {
+    padding-left: 50px;
+    margin-bottom: 15px;
+}
+
+.roadmap-phase li {
+    color: #f2f2f2;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    position: relative;
+}
+
+.roadmap-phase li::before {
+    content: '▹';
+    position: absolute;
+    left: -20px;
+    color: #ff8332;
+    font-size: 18px;
+}
+
+/* Mini Task Box */
+.mini-task {
+    background: linear-gradient(135deg, rgba(255, 131, 50, 0.1) 0%, rgba(255, 131, 50, 0.05) 100%);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ff8332;
+    margin: 15px 0 25px 0;
+    font-size: 15px;
+    color: #f2f2f2;
+    transition: all 0.3s ease;
+}
+
+.mini-task:hover {
+    background: linear-gradient(135deg, rgba(255, 131, 50, 0.15) 0%, rgba(255, 131, 50, 0.08) 100%);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(255, 131, 50, 0.2);
+}
+
+.mini-task strong {
+    color: #ff8332;
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* Add spacing between phases */
+.roadmap-phase {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.roadmap-phase:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .roadmap-week {
+        padding: 20px 15px;
+    }
+
+    .week-title {
+        font-size: 22px;
+        padding: 12px;
+    }
+
+    .week-goal {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .roadmap-phase h5 {
+        font-size: 18px;
+    }
+
+    .roadmap-phase ul {
+        padding-left: 30px;
+    }
+
+    .mini-task {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .roadmap-week {
+        padding: 15px 10px;
+        margin-bottom: 30px;
+    }
+
+    .week-title {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .week-goal {
+        font-size: 15px;
+    }
+
+    .roadmap-phase {
+        padding: 15px;
+    }
+
+    .roadmap-phase h5 {
+        font-size: 17px;
+    }
+
+    .roadmap-phase ul {
+        padding-left: 25px;
+    }
+
+    .roadmap-phase li {
+        font-size: 14px;
+    }
+}
+
+/* Smooth reveal animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content.active .roadmap-week {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.tab-content.active .roadmap-week:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tab-content.active .roadmap-week:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tab-content.active .roadmap-week:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.tab-content.active .roadmap-week:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Progress indicator for weeks */
+.roadmap-week::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 0;
+    background: linear-gradient(180deg, #ff8332, #ffa366);
+    border-radius: 5px;
+    transition: height 0.6s ease;
+}
+
+.roadmap-week:hover::before {
+    height: 100%;
+}
+
+/* ========== END OF PM CSS ========== */
 .tab-content h3 {
     color: #ff8332;
     font-size: 32px;
@@ -1078,11 +1313,366 @@ section {
             <div class="tabs">
                 <button class="tab-btn active" data-tab="react">React.js</button>
                 <button class="tab-btn" data-tab="python">Python</button>
+                <button class="tab-btn" data-tab="pm">Project Management</button> 
+                
                 <button class="tab-btn" data-tab="laravel">Laravel</button>
                 <button class="tab-btn" data-tab="routine">Daily Routine</button>
                 <button class="tab-btn" data-tab="books">Books</button>
             </div>
+<!-- ========================================
+     PROJECT MANAGEMENT ROADMAP TAB
+     Add this AFTER the Laravel tab content
+     Update the tabs section to include PM button
+     ======================================== -->
 
+<!-- FIRST: Add this button to your tabs section -->
+<!-- Find: <div class="tabs"> and add this button -->
+<!-- <button class="tab-btn" data-tab="pm">Project Management</button> -->
+
+<!-- THEN: Add this content after Laravel tab -->
+
+            <!-- Project Management Content -->
+            <div class="tab-content" id="pm">
+                <h3>25-Day Project Management Roadmap</h3>
+                <p class="roadmap-intro">From beginner to intermediate with daily practical tasks</p>
+
+                <!-- Week 1 -->
+                <div class="roadmap-week">
+                    <h4 class="week-title">📌 WEEK 1 — FUNDAMENTALS (Day 1–7)</h4>
+                    <p class="week-goal">🎯 Goal: Understand concepts, lifecycle, roles & constraints</p>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 1 — Introduction to Project Management</h5>
+                        <ul>
+                            <li>What is a project?</li>
+                            <li>Project vs operations</li>
+                            <li>Benefits of project management</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write down 5 real-life projects around you.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 2 — Roles in Project Management</h5>
+                        <ul>
+                            <li>Project Manager</li>
+                            <li>Sponsor</li>
+                            <li>Team members</li>
+                            <li>Stakeholders</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write your strengths that match PM skills.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 3 — Project Lifecycle Models</h5>
+                        <ul>
+                            <li>Waterfall</li>
+                            <li>Agile</li>
+                            <li>Hybrid</li>
+                            <li>PMBOK's 5 process groups</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Draw the full PM lifecycle.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 4 — Project Constraints</h5>
+                        <ul>
+                            <li>Cost</li>
+                            <li>Scope</li>
+                            <li>Time</li>
+                            <li>Quality</li>
+                            <li>Resources</li>
+                            <li>Risk</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Pick an activity (e.g., birthday party) and list constraints.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 5 — Project Charter</h5>
+                        <p>Learn components:</p>
+                        <ul>
+                            <li>Purpose</li>
+                            <li>Scope</li>
+                            <li>Deliverables</li>
+                            <li>Budget</li>
+                            <li>Key risks</li>
+                            <li>Stakeholders</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write a charter for a sample website project.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 6 — Stakeholder Management</h5>
+                        <ul>
+                            <li>Identification</li>
+                            <li>Analysis</li>
+                            <li>Communication</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a stakeholder power–interest grid.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 7 — Tools & PM Software</h5>
+                        <ul>
+                            <li>Trello</li>
+                            <li>Asana</li>
+                            <li>Jira</li>
+                            <li>MS Project</li>
+                            <li>Notion</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a Trello board for your sample project.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="roadmap-week">
+                    <h4 class="week-title">📌 WEEK 2 — PLANNING PHASE (Day 8–14)</h4>
+                    <p class="week-goal">🎯 Goal: Learn planning, documentation, timelines & risk control</p>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 8 — Scope Management & WBS</h5>
+                        <ul>
+                            <li>Requirements</li>
+                            <li>Deliverables</li>
+                            <li>Work Breakdown Structure</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a 3-level WBS for a mobile app.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 9 — Scheduling & Gantt Charts</h5>
+                        <ul>
+                            <li>Task dependencies</li>
+                            <li>Milestones</li>
+                            <li>Critical path</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Build a Gantt chart using Excel or ProjectLibre.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 10 — Estimation Techniques</h5>
+                        <ul>
+                            <li>PERT estimation</li>
+                            <li>Bottom-up estimating</li>
+                            <li>Analogy estimation</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Estimate time for 10 tasks using PERT.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 11 — Cost Management</h5>
+                        <ul>
+                            <li>Budget planning</li>
+                            <li>Cost baseline</li>
+                            <li>Contingency reserve</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Prepare a simple budget for your project.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 12 — Risk Management</h5>
+                        <ul>
+                            <li>Risk register</li>
+                            <li>Risk probability and impact matrix</li>
+                            <li>Mitigation strategies</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a risk register with 10 risks.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 13 — Communication Planning</h5>
+                        <ul>
+                            <li>Types of communication</li>
+                            <li>Stakeholder messaging</li>
+                            <li>Communication matrix</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Build a communication plan table.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 14 — Quality Planning</h5>
+                        <ul>
+                            <li>Quality metrics</li>
+                            <li>Acceptance criteria</li>
+                            <li>Quality assurance vs quality control</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Define quality metrics for your project deliverables.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="roadmap-week">
+                    <h4 class="week-title">📌 WEEK 3 — EXECUTION & CONTROL (Day 15–21)</h4>
+                    <p class="week-goal">🎯 Goal: Learn team management, Agile execution & performance monitoring</p>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 15 — Team Leadership</h5>
+                        <ul>
+                            <li>Motivation techniques</li>
+                            <li>Delegation</li>
+                            <li>RACI matrix</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a RACI chart for your project tasks.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 16 — Agile Project Management</h5>
+                        <ul>
+                            <li>Scrum framework</li>
+                            <li>Roles: Product Owner, Scrum Master, Dev Team</li>
+                            <li>Scrum ceremonies</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write 8 user stories (As a user, I want…).
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 17 — Sprint Planning</h5>
+                        <ul>
+                            <li>Sprint backlog</li>
+                            <li>Story points</li>
+                            <li>Burndown charts</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Plan a 7-day sprint with story points.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 18 — Monitoring & Controlling</h5>
+                        <ul>
+                            <li>KPIs</li>
+                            <li>Earned Value Management basics</li>
+                            <li>Progress tracking</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Build a simple KPI tracker sheet.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 19 — Change Management</h5>
+                        <ul>
+                            <li>Change request process</li>
+                            <li>Impact analysis (cost, time, scope)</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write a sample change request form.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 20 — Conflict & Issue Management</h5>
+                        <ul>
+                            <li>Conflict resolution strategies</li>
+                            <li>Issue logs</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Log 3 hypothetical issues and solutions.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 21 — Project Reporting</h5>
+                        <ul>
+                            <li>Status reports</li>
+                            <li>Dashboard</li>
+                            <li>Variance analysis</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a weekly status report.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="roadmap-week">
+                    <h4 class="week-title">📌 WEEK 4 — CLOSURE & PROFESSIONAL GROWTH (Day 22–25)</h4>
+                    <p class="week-goal">🎯 Goal: Close project, document achievements & prepare for PM career</p>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 22 — Project Closure</h5>
+                        <ul>
+                            <li>Lessons learned</li>
+                            <li>Final report</li>
+                            <li>Handover</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Write a 1-page lessons learned report.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 23 — Portfolio Building</h5>
+                        <ul>
+                            <li>Document your project</li>
+                            <li>Add case studies</li>
+                            <li>Add reports, WBS, Gantt, KPIs, etc.</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create a one-page PM portfolio item.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 24 — Certifications to Consider</h5>
+                        <ul>
+                            <li>PMP</li>
+                            <li>CAPM</li>
+                            <li>PRINCE2</li>
+                            <li>Scrum Master (PSM / CSM)</li>
+                            <li>Google Project Management</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Choose a certification and list requirements.
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <h5>DAY 25 — Your 90-Day Growth Plan</h5>
+                        <ul>
+                            <li>Weekly learning</li>
+                            <li>Soft skill development</li>
+                            <li>Project simulations</li>
+                            <li>PM communities and networking</li>
+                        </ul>
+                        <div class="mini-task">
+                            <strong>📝 Mini-Task:</strong> Create your personalized 90-day PM growth plan.
+                        </div>
+                    </div>
+                </div>
+
+    </div>
             <!-- React.js Content -->
             <div class="tab-content active" id="react">
                 <h3>25-Day React.js Roadmap</h3>
